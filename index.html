@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>ARQUIVO RESTRITO</title>
+
+<style>
+body {
+    background: black;
+    color: #e0e0e0;
+    font-family: monospace;
+    text-align: center;
+    padding: 30px;
+}
+
+h1 {
+    color: red;
+    letter-spacing: 3px;
+}
+
+#login {
+    margin-top: 50px;
+}
+
+input {
+    padding: 10px;
+    background: #111;
+    border: 1px solid red;
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    background: red;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+#galeria {
+    display: none;
+    margin-top: 30px;
+}
+
+img {
+    width: 250px;
+    margin: 10px;
+    border: 2px solid red;
+}
+
+.erro {
+    color: red;
+    margin-top: 10px;
+}
+
+.relatorio {
+    margin-top: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border-top: 1px solid red;
+    padding-top: 20px;
+    line-height: 1.6;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>ACESSO RESTRITO</h1>
+
+<div id="login">
+    <p>Digite a senha:</p>
+    <input type="password" id="senha">
+    <button onclick="verificarSenha()">Entrar</button>
+    <div id="erro" class="erro"></div>
+</div>
+
+<div id="galeria">
+    <h2>ARQUIVOS LIBERADOS</h2>
+
+```
+<img src="img/zumbi.png">
+<img src="img/culto.png">
+
+<div class="relatorio">
+    <h3>RELATÓRIO INTERNO — CLASSIFICAÇÃO SIGILOSA</h3>
+
+    <p>
+    Um investigador da polícia, cuja identidade foi removida dos registros oficiais,
+    iniciou uma investigação independente após múltiplos relatos sobre um possível culto
+    operando em uma estrutura abandonada.
+    </p>
+
+    <p>
+    De acordo com os dados recuperados, o agente conseguiu infiltrar-se e registrar imagens
+    do grupo. No entanto, após o contato inicial, algo não identificado passou a persegui-lo.
+    </p>
+
+    <p>
+    A última transmissão do investigador contém ruídos, respiração acelerada e um som descrito
+    por analistas como "não humano". Após esse ponto, não houve mais comunicação.
+    </p>
+
+    <p>
+    Seu corpo nunca foi encontrado.
+    </p>
+
+    <p>
+    Na mesma noite, foram registrados <strong>11 mortos</strong> nas proximidades.
+    Os relatórios oficiais classificaram o ocorrido como "incidente isolado".
+    </p>
+
+    <p>
+    Diversas inconsistências nos registros indicam interferência externa.
+    Evidências sugerem que uma organização desconhecida atuou para encobrir o caso.
+    </p>
+
+    <p>
+    Status: <strong>ARQUIVO INCOMPLETO</strong>
+    </p>
+</div>
+```
+
+</div>
+
+<script>
+const senhaCorreta = "AKFAK";
+
+function verificarSenha() {
+    const senha = document.getElementById("senha").value;
+    const erro = document.getElementById("erro");
+
+    if (senha === senhaCorreta) {
+        document.getElementById("login").style.display = "none";
+        document.getElementById("galeria").style.display = "block";
+        erro.innerText = "";
+    } else {
+        erro.innerText = "ACESSO NEGADO";
+    }
+}
+
+document.getElementById("senha").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        verificarSenha();
+    }
+});
+
+window.onload = function() {
+    document.getElementById("login").style.display = "block";
+    document.getElementById("galeria").style.display = "none";
+}
+</script>
+
+</body>
+</html>
